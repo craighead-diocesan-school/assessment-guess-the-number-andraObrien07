@@ -7,6 +7,7 @@ function guess() {
     // ask the user for their name to put them on the leaderboard
     let userName = prompt('What is your name?')
     // ask the user to guess a number from 1 to 20
+    userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
     // let userGuess = prompt('IIIIII am thInkIng of a numbEr from 1 and 20. Guess what that numbEr Is!')
 
     //have the count start at 0
@@ -22,17 +23,19 @@ function guess() {
     //loop, if the randomly generated computer number is not what the user guessed then it will say 'thats not correct'
     while (options[index] != userGuess) {
         userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
-        alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
+
+        if (userGuess != options[index])
+            alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
         count = count + 1
-        alert(count)
+        // alert(count)
         alert(options[index] + 'is the number')
         if (options[index] == userGuess) {
             alert(userName + 'You arE rIght! I chosE' + options[index])
-            alert(count)
+            alert('you guess the number in ' + count + 'tries')
         }
-        else if (userGuess < 1 && userGuess < 20) {
+        else if (userGuess < 1 || userGuess > 20) {
             alert(' that is an invalid input and you should try again')
-            count = count + 1
+            count = count + 0
         }
         //add 1 to the count everytime they guess incorrectly/ every time the loop goes round.
         // count = count + 1
@@ -40,22 +43,14 @@ function guess() {
 
     }
 
-    // if (options[index] == userGuess) {
-    //     alert(userName + 'You arE rIght! I chosE' + options[index])
-    // }
 
-    // else if (userGuess < 1 && userGuess < 20) {
-    //     alert(' that is an invalid input and you should try again')
-    // }
     let info = {
         name: userName,
         amountOfTries: count,
     }
     userNameArray.push(nameArray)
 }
-// if (userChoice == 'paper' || userChoice == 'rock' || userChoice == 'scissors')
-//     count = count + 1
-// alert('that is ' + count + 'games')
+
 
 let userNameArray = [
     { name: 'Andra', timesGuessed: 14 },
@@ -66,10 +61,12 @@ let userNameArray = [
 
 ]
 function leaderBoard() {
-    alert(userName + 'guEssEd thE corrEct answEr in trIEs')
-    for (let info of userNameArray) {
-        alert(info.name + ', it took you ' + info.amountOfTries + ' to guess the random number!')
-    }
+    // alert(userName + 'guEssEd thE corrEct answEr in trIEs')
+    // for (let info of userNameArray) {
+    //     alert(info.name + ', it took you ' + info.amountOfTries + ' to guess the random number!')
+    // }
+
+    alert(userNameArray)
 }
 
 
