@@ -26,8 +26,8 @@ function guess() {
 
         if (userGuess != options[index])
             alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
+        //add 1 to the count everytime they guess incorrectly/ every time the loop goes round.
         count = count + 1
-        // alert(count)
         alert(options[index] + 'is the number')
         if (options[index] == userGuess) {
             alert(userName + 'You arE rIght! I chosE' + options[index])
@@ -37,9 +37,9 @@ function guess() {
             alert(' that is an invalid input and you should try again')
             count = count + 0
         }
-        //add 1 to the count everytime they guess incorrectly/ every time the loop goes round.
-        // count = count + 1
-        //  userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
+
+
+
 
     }
 
