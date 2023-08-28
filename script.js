@@ -10,7 +10,7 @@ let info
 let userGuess
 
 //count start at 0
-let count = 0
+let count
 
 ////makes the userGuess a variable availbale to all functions
 let userName
@@ -24,6 +24,9 @@ function programChoice() {
 }
 
 function guess() {
+    //reset count at 1 at the start of each game
+    count = 0
+
     // ask the user for their name to put them on the leaderboard
     userName = prompt('What is your name?')
 
@@ -35,14 +38,23 @@ function guess() {
     //loop, if the randomly generated computer number is not what the user guessed then it will say 'thats not correct'
     while (randomNumber != userGuess) {
         userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
+
+        //if the userGuess is less than 1 and greater than 20  it will say that it is an invalid input
+        if (userGuess < min || userGuess > max) {
+            alert(' that is an invalid input and you should try again')
+        }
+        //if the userGuess is above the min and below the max, 1 will  be added to the count
+        else {
+            count = count + 1
+        }
+
+
         // if the usersGuess is not the same as the randomly generated guess then it will do whatever is in this if statement
-        if (userGuess != randomNumber)
+        if (userGuess != randomNumber) {
             //tells the user that their guess is not correct as its not the same as the randomly generated guess
             alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
-        //add 1 to the count everytime they guess incorrectly/ every time the loop goes round.
-        count = count + 1
-        alert(randomNumber + ' is the number')
-        alert(count)
+            alert(randomNumber + ' is the number')
+        }
 
         //if the randomly generated guess is the same as the userguess it will do whats in the if statement
         if (randomNumber == userGuess) {
@@ -52,18 +64,14 @@ function guess() {
             alert('you guess the number in ' + count + ' tries')
         }
 
-        //if the userGuess is less than 1 and greater than 20  it will say that it is an invalid input
-        else if (userGuess < min || userGuess > max) {
-            //add 0 to the count
-            count = count + 0
-            alert(' that is an invalid input and you should try again')
-        }
+
     }
 
     info = {
         name: userName,
         timesGuessed: count,
     }
+    //pushes the name and timesguessed that the most recent player did to scoreboard
     userNameArray.push(info)
 
 }
