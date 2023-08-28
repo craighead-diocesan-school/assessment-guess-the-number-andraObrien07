@@ -1,82 +1,85 @@
+//things used in multiple functions
+let randomNumber
+// Defining min and max values 
+const min = 1
+const max = 20
+//information stpred on player like how many tries it took and their name
+let info
 
-const options = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
-]
+//makes the userGuess a variable availbale to all functions
+let userGuess
+
+//count start at 0
+let count = 0
+
+////makes the userGuess a variable availbale to all functions
+let userName
+
+
+
+function programChoice() {
+    //gets the computer to randomly gernerate a number between 1 and 20
+    randomNumber = Math.floor(Math.random() * (max - min + 1) + min)
+
+}
 
 function guess() {
     // ask the user for their name to put them on the leaderboard
-    let userName = prompt('What is your name?')
-
-    //makes the userGuess variable
-    let userGuess
-
-    //have the count start at 0
-    count = 0
+    userName = prompt('What is your name?')
 
     //converts the user guess to a number
     userGuess = Number(userGuess)
 
-    //gets the computer to randomly gernerate a number from the options array
-    let index = Math.floor(Math.random() * 20)
-
+    programChoice()
 
     //loop, if the randomly generated computer number is not what the user guessed then it will say 'thats not correct'
-    while (options[index] != userGuess) {
+    while (randomNumber != userGuess) {
         userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
         // if the usersGuess is not the same as the randomly generated guess then it will do whatever is in this if statement
-        if (userGuess != options[index])
+        if (userGuess != randomNumber)
             //tells the user that their guess is not correct as its not the same as the randomly generated guess
             alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
         //add 1 to the count everytime they guess incorrectly/ every time the loop goes round.
         count = count + 1
-        alert(options[index] + 'is the number')
+        alert(randomNumber + ' is the number')
+        alert(count)
 
         //if the randomly generated guess is the same as the userguess it will do whats in the if statement
-        if (options[index] == userGuess) {
+        if (randomNumber == userGuess) {
             //tells the user that they are right and what the number was 
-            alert(userName + ' you arE rIght! I chosE ' + options[index])
+            alert(userName + ' you arE rIght! I chosE ' + randomNumber)
             //tells the user how many tries it took them to guess
             alert('you guess the number in ' + count + ' tries')
         }
 
         //if the userGuess is less than 1 and greater than 20  it will say that it is an invalid input
-        else if (userGuess < 1 || userGuess > 20) {
+        else if (userGuess < min || userGuess > max) {
+            //add 0 to the count
             count = count + 0
             alert(' that is an invalid input and you should try again')
-
         }
-
-
-
-
     }
 
-
-    let info = {
+    info = {
         name: userName,
-        amountOfTries: count,
+        timesGuessed: count,
     }
-    userNameArray.push(nameArray)
+    userNameArray.push(info)
+
 }
 
-
-let userNameArray = [
-    { name: 'Andra', timesGuessed: 14 },
-    { name: 'Emma', timesGuessed: 9 },
+userNameArray = [
+    { name: 'Charlotte', timesGuessed: 14 },
+    { name: 'Isabel', timesGuessed: 9 },
     { name: 'G', timesGuessed: 5 },
-    { name: 'Annabelle', timesGuessed: count },
-
-
 ]
+
 function scoreBoard() {
-    // alert(userName + 'guEssEd thE corrEct answEr in trIEs')
-    // for (let info of userNameArray) {
-    //     alert(info.name + ', it took you ' + info.amountOfTries + ' to guess the random number!')
-    // }
+    for (info of userNameArray) {
 
+        alert('it took ' + info.name + ' ' + info.timesGuessed + ' amount of tries')
+    }
 
-    alert('it took ' + userName + ' amount of tries')
 }
-
 
 
