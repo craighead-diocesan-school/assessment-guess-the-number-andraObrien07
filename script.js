@@ -33,6 +33,7 @@ function guess() {
     //converts the user guess to a number
     userGuess = Number(userGuess)
 
+    //tells the computer to randomly generate a number between 1-20 so it is ready for the next part of the code
     programChoice()
 
     //loop, if the randomly generated computer number is not what the user guessed then it will say 'thats not correct'
@@ -71,11 +72,11 @@ function guess() {
         name: userName,
         timesGuessed: count,
     }
-    //pushes the name and timesguessed that the most recent player did to scoreboard
+    //pushes the name and times guessed that the most recent player did to scoreboard
     userNameArray.push(info)
 
 }
-
+//players who have played previously, to make to game more realistic
 userNameArray = [
     { name: 'Charlotte', timesGuessed: 14 },
     { name: 'Isabel', timesGuessed: 9 },
@@ -84,7 +85,7 @@ userNameArray = [
 
 function scoreBoard() {
     for (info of userNameArray) {
-
+        //alerts the user their name and times guessed when they press the score board button
         alert('it took ' + info.name + ' ' + info.timesGuessed + ' amount of tries')
     }
 
