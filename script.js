@@ -69,9 +69,6 @@ function compareGuess() {
         if (userGuess != randomNumber) {
             //tells the user that their guess is not correct as its not the same as the randomly generated guess
             alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
-
-            // GET RID OF tell me what number it is so i dont have to gues for ever
-            alert(randomNumber + ' is the number')
         }
 
         //if the randomly generated guess is the same as the userguess it will do whats in the if statement
