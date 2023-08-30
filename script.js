@@ -32,7 +32,6 @@ function guess() {
     playerGuess()
 
     //if userGuess has any digits in it, it will say invalid
-
     ///\d/.checks to see if there are any digits in the input
     //test is confirming that its true there is a digit in (username)
     if (/\d/.test(userName)) {
@@ -46,7 +45,6 @@ function guess() {
 
     //loop, if the randomly generated computer number is not what the user guessed then it will say 'thats not correct'
     while (randomNumber != userGuess) {
-
         userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
 
         //if the userGuess is less than 1 and greater than 20  it will say that it is an invalid input
@@ -85,14 +83,13 @@ function guess() {
     userNameArray.push(info)
 }
 
-//players who have played previously, to make to game more realistic
+//players who have played previously, to make to game more realistic 
 userNameArray = [
     { name: 'Charlotte', timesGuessed: 14 },
     { name: 'Isabel', timesGuessed: 9 },
     { name: 'G', timesGuessed: 5 },
 ]
 
-//the scoreboard button and function
 function scoreBoard() {
     for (info of userNameArray) {
         //alerts the user their name and times guessed when they press the score board button
