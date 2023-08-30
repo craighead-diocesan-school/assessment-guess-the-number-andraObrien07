@@ -3,29 +3,20 @@ let randomNumber
 // Defining min and max values 
 const min = 1
 const max = 20
-//information stpred on player like how many tries it took and their name
+//information stored on player like how many tries it took and their name
 let info
-
 //makes the userGuess a variable availbale to all functions
 let userGuess
-
-//count start at 0
+//count available for all functions =0
 let count
-
-////makes the userGuess a variable availbale to all functions
+//makes the userGuess a variable availbale to all functions
 let userName
 
 function playerGuess() {
     // ask the user for their name to put them on the leaderboard
     userName = prompt('What is your name?')
-
-
-    // //changes all the characters to lower case inthe user guess
-    // userGuess = userGuess.toLowerCase()
-
     //converts the user guess to a number
     userGuess = Number(userGuess)
-
 }
 
 function programChoice() {
@@ -42,11 +33,11 @@ function guess() {
 
     //if userGuess has any digits in it, it will say invalid
 
-    ///\d/ checks to see if there are any digits in the input
-    //.est is confirming that its true there is a digit in (username)
+    ///\d/.checks to see if there are any digits in the input
+    //test is confirming that its true there is a digit in (username)
     if (/\d/.test(userName)) {
         alert("User name should not have any digits in it.");
-        return; // stops the code from kepping going
+        return; // stops the code from continuing 
 
     }
 
@@ -107,7 +98,6 @@ function scoreBoard() {
         //alerts the user their name and times guessed when they press the score board button
         alert('it took ' + info.name + ' ' + info.timesGuessed + ' amount of tries')
     }
-
 }
 
 
