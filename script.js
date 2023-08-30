@@ -43,6 +43,12 @@ function guess() {
     //tells the computer to randomly generate a number between 1-20 so it is ready for the next part of the code
     programChoice()
 
+    //compares the majic number and ther users guess
+    compareGuess()
+
+}
+
+function compareGuess() {
     //loop, if the randomly generated computer number is not what the user guessed then it will say 'thats not correct'
     while (randomNumber != userGuess) {
         userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
@@ -82,7 +88,6 @@ function guess() {
     //pushes the name and times guessed that the most recent player did to scoreboard
     userNameArray.push(info)
 }
-
 //players who have played previously, to make to game more realistic 
 userNameArray = [
     { name: 'Charlotte', timesGuessed: 14 },
@@ -96,5 +101,6 @@ function scoreBoard() {
         alert('it took ' + info.name + ' ' + info.timesGuessed + ' amount of tries')
     }
 }
+
 
 
