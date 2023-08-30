@@ -15,23 +15,35 @@ let count
 ////makes the userGuess a variable availbale to all functions
 let userName
 
+function playerGuess() {
+    // ask the user for their name to put them on the leaderboard
+    userName = prompt('What is your name?')
 
+
+    // //changes all the characters to lower case inthe user guess
+    // userGuess = userGuess.toLowerCase().trim()
+
+    //converts the user guess to a number
+    userGuess = Number(userGuess)
+
+    //if userGuess has any digits in it, it will say invalid
+    if (/\d/.test(userGuess)) {
+        alert("User name should now have and digits in it.");
+
+    }
+}
 
 function programChoice() {
     //gets the computer to randomly gernerate a number between 1 and 20
     randomNumber = Math.floor(Math.random() * (max - min + 1) + min)
-
 }
 
 function guess() {
     //reset count at 1 at the start of each game
     count = 0
 
-    // ask the user for their name to put them on the leaderboard
-    userName = prompt('What is your name?')
-
-    //converts the user guess to a number
-    userGuess = Number(userGuess)
+    //does the code from playerGuess function
+    playerGuess()
 
     //tells the computer to randomly generate a number between 1-20 so it is ready for the next part of the code
     programChoice()
@@ -49,11 +61,12 @@ function guess() {
             count = count + 1
         }
 
-
         // if the usersGuess is not the same as the randomly generated guess then it will do whatever is in this if statement
         if (userGuess != randomNumber) {
             //tells the user that their guess is not correct as its not the same as the randomly generated guess
             alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
+
+            // GET RID OF tell me what number it is so i dont have to gues for ever
             alert(randomNumber + ' is the number')
         }
 
@@ -64,8 +77,6 @@ function guess() {
             //tells the user how many tries it took them to guess
             alert('you guess the number in ' + count + ' tries')
         }
-
-
     }
 
     info = {
@@ -74,8 +85,8 @@ function guess() {
     }
     //pushes the name and times guessed that the most recent player did to scoreboard
     userNameArray.push(info)
-
 }
+
 //players who have played previously, to make to game more realistic
 userNameArray = [
     { name: 'Charlotte', timesGuessed: 14 },
