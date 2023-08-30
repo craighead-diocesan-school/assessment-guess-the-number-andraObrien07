@@ -26,11 +26,6 @@ function playerGuess() {
     //converts the user guess to a number
     userGuess = Number(userGuess)
 
-    //if userGuess has any digits in it, it will say invalid
-    if (/\d/.test(userGuess)) {
-        alert("User name should now have and digits in it.");
-
-    }
 }
 
 function programChoice() {
@@ -44,12 +39,18 @@ function guess() {
 
     //does the code from playerGuess function
     playerGuess()
+    //if userGuess has any digits in it, it will say invalid
+    if (/\d/.test(userName)) {
+        alert("User name should not have any digits in it.");
+        return; // stops the code from kepping going
 
+    }
     //tells the computer to randomly generate a number between 1-20 so it is ready for the next part of the code
     programChoice()
 
     //loop, if the randomly generated computer number is not what the user guessed then it will say 'thats not correct'
     while (randomNumber != userGuess) {
+
         userGuess = prompt('IIIIII am thInkIng of a numbEr bEtwEEN 1 and 20. Guess what that numbEr Is!')
 
         //if the userGuess is less than 1 and greater than 20  it will say that it is an invalid input
