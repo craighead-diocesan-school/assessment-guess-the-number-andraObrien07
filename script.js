@@ -39,7 +39,11 @@ function guess() {
 
     //does the code from playerGuess function
     playerGuess()
+
+
     //if userGuess has any digits in it, it will say invalid
+    ///\d/ checks to see if there are any digits in the input
+    //.est is confirming that its true there is a digit in (username)
     if (/\d/.test(userName)) {
         alert("User name should not have any digits in it.");
         return; // stops the code from kepping going
