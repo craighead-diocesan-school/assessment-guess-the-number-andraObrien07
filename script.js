@@ -17,6 +17,13 @@ function playerGuess() {
     userName = prompt('What is your name?')
     //converts the user guess to a number
     userGuess = Number(userGuess)
+
+    if (/\d/.test(userName)) {
+        alert("User name should not have any digits in it.");
+        return false; // gives the computer a false value for the userName which is invalid
+    }
+    userGuess = Number(userGuess);
+    return true; // Gives the computer a true value for the userName which is valid
 }
 
 function programChoice() {
@@ -28,16 +35,12 @@ function guess() {
     //reset count at 1 at the start of each game
     count = 0
 
-    //does the code from playerGuess function
-    playerGuess()
+    // checks the playerGuess functions value if it has digits or not, and asks the user for their name
+    const isValidName = playerGuess();
 
-    //if userGuess has any digits in it, it will say invalid
-    ///\d/.checks to see if there are any digits in the input
-    //test is confirming that its true there is a digit in (username)
-    if (/\d/.test(userName)) {
-        alert("User name should not have any digits in it.");
-        return; // stops the code from continuing 
-
+    // If the name has digits it means its not valid and the game will stop 'retrun'
+    if (!isValidName) {
+        return;
     }
 
     //tells the computer to randomly generate a number between 1-20 so it is ready for the next part of the code
