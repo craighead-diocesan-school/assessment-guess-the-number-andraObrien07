@@ -21,7 +21,7 @@ function playerGuess() {
 
 
     // //changes all the characters to lower case inthe user guess
-    // userGuess = userGuess.toLowerCase().trim()
+    // userGuess = userGuess.toLowerCase()
 
     //converts the user guess to a number
     userGuess = Number(userGuess)
@@ -40,7 +40,6 @@ function guess() {
     //does the code from playerGuess function
     playerGuess()
 
-
     //if userGuess has any digits in it, it will say invalid
     ///\d/ checks to see if there are any digits in the input
     //.est is confirming that its true there is a digit in (username)
@@ -49,6 +48,7 @@ function guess() {
         return; // stops the code from kepping going
 
     }
+
     //tells the computer to randomly generate a number between 1-20 so it is ready for the next part of the code
     programChoice()
 
@@ -84,6 +84,7 @@ function guess() {
         }
     }
 
+    // stores the userName in name and count in timesGuessed
     info = {
         name: userName,
         timesGuessed: count,
@@ -99,6 +100,7 @@ userNameArray = [
     { name: 'G', timesGuessed: 5 },
 ]
 
+//the scoreboard button and function
 function scoreBoard() {
     for (info of userNameArray) {
         //alerts the user their name and times guessed when they press the score board button
