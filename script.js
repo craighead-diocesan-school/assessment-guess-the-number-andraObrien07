@@ -7,23 +7,26 @@ const max = 20
 let info
 //makes the userGuess a variable availbale to all functions
 let userGuess
+let userName
 //count available for all functions =0
 let count
 //makes the userGuess a variable availbale to all functions
-let userName
 
-function playerGuess() {
-    // ask the user for their name to put them on the leaderboard
-    userName = prompt('What is your name?')
-    //converts the user guess to a number
-    userGuess = Number(userGuess)
 
-    if (/\d/.test(userName)) {
-        alert("User name should not have any digits in it.");
-        return false; // gives the computer a false value for the userName which is invalid
+function playerName() {
+
+    let isValidName = false;
+
+    while (!isValidName) {
+        userName = prompt("Enter your username (no digits allowed):");
+
+        if (!/\d/.test(userName)) {
+            isValidName = true;
+        } else {
+            alert("Username should not contain digits. Enter again:");
+        }
     }
     userGuess = Number(userGuess);
-    return true; // Gives the computer a true value for the userName which is valid
 }
 
 function programChoice() {
@@ -35,20 +38,15 @@ function guess() {
     //reset count at 1 at the start of each game
     count = 0
 
-    // checks the playerGuess functions value if it has digits or not, and asks the user for their name
-    const isValidName = playerGuess();
-
-    // If the name has digits it means its not valid and the game will stop 'retrun'
-    if (!isValidName) {
-        return;
-    }
+    //gets the players name
+    playerName()
 
     //tells the computer to randomly generate a number between 1-20 so it is ready for the next part of the code
     programChoice()
 
     //compares the majic number and ther users guess
     compareGuess()
-
+    // }
 }
 
 function compareGuess() {
@@ -59,6 +57,7 @@ function compareGuess() {
         //if the userGuess is less than 1 and greater than 20  it will say that it is an invalid input
         if (userGuess < min || userGuess > max) {
             alert(' that is an invalid input and you should try again')
+
         }
         //if the userGuess is above the min and below the max, 1 will  be added to the count
         else {
@@ -69,6 +68,7 @@ function compareGuess() {
         if (userGuess != randomNumber) {
             //tells the user that their guess is not correct as its not the same as the randomly generated guess
             alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
+            alert(randomNumber)
         }
 
         //if the randomly generated guess is the same as the userguess it will do whats in the if statement
