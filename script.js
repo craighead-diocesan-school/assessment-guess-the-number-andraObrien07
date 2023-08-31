@@ -14,19 +14,19 @@ let count
 
 
 function playerName() {
-
+    // something to track the valid name
     let isValidName = false;
 
+    //if the username has no digits
     while (!isValidName) {
         userName = prompt("Enter your username (no digits allowed):");
 
         if (!/\d/.test(userName)) {
-            isValidName = true;
+            isValidName = true; //the valid tracker is now made true
         } else {
             alert("Username should not contain digits. Enter again:");
         }
     }
-    userGuess = Number(userGuess);
 }
 
 function programChoice() {
@@ -46,7 +46,7 @@ function guess() {
 
     //compares the majic number and ther users guess
     compareGuess()
-    // }
+
 }
 
 function compareGuess() {
@@ -78,16 +78,21 @@ function compareGuess() {
             //tells the user how many tries it took them to guess
             alert('you guess the number in ' + count + ' tries')
         }
+        //converts userGuess to a number
+        userGuess = Number(userGuess);
     }
+
 
     // stores the userName in name and count in timesGuessed
     info = {
         name: userName,
         timesGuessed: count,
     }
+
     //pushes the name and times guessed that the most recent player did to scoreboard
     userNameArray.push(info)
 }
+
 //players who have played previously, to make to game more realistic 
 userNameArray = [
     { name: 'Charlotte', timesGuessed: 14 },
