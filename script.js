@@ -15,7 +15,7 @@ let count
 
 
 function playerName() {
-    // something to track the valid name
+    // tracking the valid name to see if its valid/ true or flase
     let nameValid = false;
 
     //if the username has no digits
@@ -75,7 +75,6 @@ function compareGuess() {
         if (userGuess != randomNumber) {
             //tells the user that their guess is not correct as its not the same as the randomly generated guess
             alert(userName + ' That Is not corrEct, plEasE guEss agaIn')
-            alert(randomNumber)
         }
 
         //if the randomly generated guess is the same as the userguess it will do whats in the if statement
