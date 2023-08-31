@@ -7,6 +7,7 @@ const max = 20
 let info
 //makes the userGuess a variable availbale to all functions
 let userGuess
+//makes that username variable available for all functions
 let userName
 //count available for all functions =0
 let count
@@ -21,7 +22,10 @@ function playerName() {
     while (!isValidName) {
         userName = prompt("Enter your username (no digits allowed):");
 
-        if (!/\d/.test(userName)) {
+        if (userName.trim() === "") {
+            alert("Username cannot be empty. Enter again:");
+        }
+        else if (!/\d/.test(userName)) {
             isValidName = true; //the valid tracker is now made true
         } else {
             alert("Username should not contain digits. Enter again:");
