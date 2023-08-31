@@ -16,22 +16,22 @@ let count
 
 function playerName() {
     // something to track the valid name
-    let isValidName = false;
+    let nameValid = false;
 
     //if the username has no digits
-    while (!isValidName) {
-        userName = prompt("Enter your username (no digits allowed):");
+    while (!nameValid) {
+        userName = prompt("Whats your username (no numbers/digits allowed)");
 
         //make sure there is no white space in the username
         if (userName.trim() === "") {
-            alert("Username cannot be empty. Enter again:");
+            alert("You can not have nothing as your user name, please try again:");
         }
 
         //make sure there are no digits in the username
         else if (!/\d/.test(userName)) {
-            isValidName = true; //the valid tracker is now made true
+            nameValid = true; //the valid tracker is now made true
         } else {
-            alert("Username should not contain digits. Enter again:");
+            alert("Your username should not have any numbers/digits in it, please try again");
         }
     }
 }
