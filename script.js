@@ -22,9 +22,12 @@ function playerName() {
     while (!isValidName) {
         userName = prompt("Enter your username (no digits allowed):");
 
+        //make sure there is no white space in the username
         if (userName.trim() === "") {
             alert("Username cannot be empty. Enter again:");
         }
+
+        //make sure there are no digits in the username
         else if (!/\d/.test(userName)) {
             isValidName = true; //the valid tracker is now made true
         } else {
